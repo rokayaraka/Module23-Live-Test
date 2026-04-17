@@ -34,7 +34,7 @@ class _ReciepieItemState extends State<ReciepieItem> {
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(0, 189, 156, 235),
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.circular(8),
                   boxShadow: [
                     BoxShadow(
