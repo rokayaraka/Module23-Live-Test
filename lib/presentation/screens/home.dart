@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:live_exam/data/json.dart';
 import 'package:live_exam/data/models/reciepe.dart';
 
 class Home extends StatefulWidget {
@@ -16,7 +19,10 @@ class _HomeState extends State<Home> {
     
   }
   void fetch(){
-
+    reciepes= jsonData['recipes'].map<Reciepe>((json) => Reciepe.fromJson(json)).toList();
+    setState(() {
+      
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -25,11 +31,12 @@ class _HomeState extends State<Home> {
         title: const Text("Recipes"),
       ),
       body: ListView.builder(
-        itemCount: 6,
+        itemCount: reciepes.length,
         itemBuilder: (context, index) {
+          final reciepe = reciepes[index];
           return ListTile(
-            title: Text("Recipe ${index + 1}"),
-            subtitle: Text("Description of Recipe ${index + 1}"),
+            title: Text(reciepe.title ?? "Unnamed Recipe"),
+            subtitle: Text(reciepe.description ?? "No description available"),
           );
         },
       ),
