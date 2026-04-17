@@ -26,19 +26,37 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Recipes"),
+        centerTitle: true,
+        elevation: 2,
+        shadowColor: Colors.grey,
+
+        title: const Text("Recipes",
+       style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,),
+        ),
       ),
-      body: ListView.builder(
+      body: ListView.separated(
+        separatorBuilder: (context, index) => Divider(),
         itemCount: reciepes.length,
         itemBuilder: (context, index) {
           final reciepe = reciepes[index];
+
           return GestureDetector(
             onTap: () {
               
             },
-            child: ListTile(
-              title: Text(reciepe.title ?? "Unnamed Recipe"),
-              subtitle: Text(reciepe.description ?? "No description available"),
+            child: Card(
+              child: ListTile(
+                title: Text(reciepe.title ?? "Unnamed Recipe",
+                style: TextStyle(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+                ),
+                subtitle: Text(reciepe.description ?? "No description available"),
+              ),
             ),
           );
         },
