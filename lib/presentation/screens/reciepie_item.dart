@@ -16,7 +16,14 @@ class _ReciepieItemState extends State<ReciepieItem> {
         centerTitle: true,
         elevation: 2,
         shadowColor: Colors.grey,
-        title: Text(widget.reciepe.title ?? "Unnamed Recipe"),
+        title: Text(widget.reciepe.title ?? "Unnamed Recipe",
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          
+          fontSize: 24,
+          fontWeight: FontWeight.bold,),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -26,6 +33,7 @@ class _ReciepieItemState extends State<ReciepieItem> {
             children: [
               Text(
                 widget.reciepe.description ?? "No description available",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -45,10 +53,14 @@ class _ReciepieItemState extends State<ReciepieItem> {
                     fit: BoxFit.cover,
                     )),
               ),
-              Text(
-                "Ingredients",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+              SizedBox(height: 20),
+              Container(
+                
+                child: Text(
+                  "Ingredients",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
               ),
 
               SizedBox(height: 20),
@@ -72,7 +84,7 @@ class _ReciepieItemState extends State<ReciepieItem> {
                         ),
                       ],
                     ),
-                    
+
                     child: ListTile(
                       leading: Icon(Icons.check),
                       title: Text(ingredient),
