@@ -56,12 +56,14 @@ class _HomeState extends State<Home> {
             child: Card(
               child: ListTile(
                 title: Text(reciepe.title ?? "Unnamed Recipe",
+                
                 style: TextStyle(
                   color: const Color.fromARGB(255, 0, 0, 0),
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
                 ),
+                leading: Icon(Icons.restaurant, color: Colors.deepPurple),
                 subtitle: Text(reciepe.description ?? "No description available"),
               ),
             ),
