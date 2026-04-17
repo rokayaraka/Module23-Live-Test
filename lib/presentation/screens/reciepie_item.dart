@@ -34,12 +34,7 @@ class _ReciepieItemState extends State<ReciepieItem> {
               ),
               SizedBox(height: 20),
               
-              Text(
-                "Ingredients",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-                SizedBox(height: 10),
+              
               SizedBox(
                 height: 200,
                 width: double.infinity,
@@ -50,8 +45,41 @@ class _ReciepieItemState extends State<ReciepieItem> {
                     fit: BoxFit.cover,
                     )),
               ),
+              Text(
+                "Ingredients",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+
               SizedBox(height: 20),
-              ...?widget.reciepe.ingredients?.map((ingredient) => Text("- $ingredient")),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: widget.reciepe.ingredients?.length ?? 0,
+                itemBuilder: (context, index) {
+                  final ingredient = widget.reciepe.ingredients?[index] ?? "Unknown Ingredient";
+                  return Container(
+                    margin: EdgeInsets.symmetric(vertical: 4),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 3,
+                          offset: Offset(0, 2), 
+                        ),
+                      ],
+                    ),
+                    
+                    child: ListTile(
+                      leading: Icon(Icons.check),
+                      title: Text(ingredient),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
