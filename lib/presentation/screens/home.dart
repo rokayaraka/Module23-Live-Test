@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:live_exam/data/json.dart';
 import 'package:live_exam/data/models/reciepe.dart';
@@ -16,7 +14,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    
+    fetch();
   }
   void fetch(){
     reciepes= jsonData['recipes'].map<Reciepe>((json) => Reciepe.fromJson(json)).toList();
@@ -34,9 +32,14 @@ class _HomeState extends State<Home> {
         itemCount: reciepes.length,
         itemBuilder: (context, index) {
           final reciepe = reciepes[index];
-          return ListTile(
-            title: Text(reciepe.title ?? "Unnamed Recipe"),
-            subtitle: Text(reciepe.description ?? "No description available"),
+          return GestureDetector(
+            onTap: () {
+              
+            },
+            child: ListTile(
+              title: Text(reciepe.title ?? "Unnamed Recipe"),
+              subtitle: Text(reciepe.description ?? "No description available"),
+            ),
           );
         },
       ),
