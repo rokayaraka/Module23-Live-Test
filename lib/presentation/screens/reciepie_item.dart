@@ -25,12 +25,17 @@ class _ReciepieItemState extends State<ReciepieItem> {
           children: [
             Text(
               widget.reciepe.description ?? "No description available",
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(255, 0, 0, 0),
+              ),
             ),
             SizedBox(height: 20),
             Text(
-              "Ingredients:",
+              "Ingredients",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
             ...?widget.reciepe.ingredients?.map((ingredient) => Text("- $ingredient")),
           ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:live_exam/data/json.dart';
 import 'package:live_exam/data/models/reciepe.dart';
+import 'package:live_exam/presentation/screens/reciepie_item.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -44,6 +45,12 @@ class _HomeState extends State<Home> {
 
           return GestureDetector(
             onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ReciepieItem(reciepe: reciepe),
+                ),
+              );
               
             },
             child: Card(
@@ -51,7 +58,7 @@ class _HomeState extends State<Home> {
                 title: Text(reciepe.title ?? "Unnamed Recipe",
                 style: TextStyle(
                   color: const Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 18,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
                 ),
