@@ -31,13 +31,28 @@ class _ReciepieItemState extends State<ReciepieItem> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                widget.reciepe.description ?? "No description available",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: const Color.fromARGB(255, 0, 0, 0),
+              Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(0, 189, 156, 235),
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2), 
+                    ),
+                  ],
+                ),
+                child: Text(
+                  widget.reciepe.description ?? "No description available",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                  ),
                 ),
               ),
               SizedBox(height: 20),
@@ -55,11 +70,26 @@ class _ReciepieItemState extends State<ReciepieItem> {
               ),
               SizedBox(height: 20),
               Container(
-                
-                child: Text(
-                  "Ingredients",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
+                width: double.infinity,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2), 
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    "Ingredients",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
 
